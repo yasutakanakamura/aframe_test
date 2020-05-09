@@ -1,0 +1,26 @@
+{
+  "name": "aframe_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "a-frame": "^0.0.0",
+    "aframe": "^1.0.4",
+    "aframe-react": "^4.4.0",
+    "three-pathfinding": "^0.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasutakanakamura/aframe_test.git"
+  },
+  "author": "Yasutaka Nakamura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yasutakanakamura/aframe_test/issues"
+  },
+  "homepage": "https://github.com/yasutakanakamura/aframe_test#readme"
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="js/app.js"></script>
+    
+    <a-asset>
+      <img id="images_01" src="images/VR_01_5441_1500mm.jpg">
+      <img id="images_02" src="images/VR_02_5305_1500mm.jpg">
+      <img id="images_03" src="images/VR_03_5175_1500mm.jpg">
+      <img id="test" src="images/VR_13_5222_1500mm.jpg">
+    </a-asset>
+    
+  </head>
+  <body>
+    <a-scene background="color: gray">
+      <!-- 360-degree image. -->
+      <a-entity camera="" position="" wasd-controls="adEnabled: false; enabled: false; wsEnabled: false" look-controls="" aframe-injected="" data-aframe-inspector-original-camera="" rotation=""></a-entity>
+      <a-entity camera look-controls>
+        <a-entity 
+          cursor="fuse: true; fuseTimeout: 500"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+          material="color: gray; shader: flat">
+            <a-animation 
+              begin="mouseenter" 
+              easing="ease-out" 
+              attribute="scale" 
+              fill="forwards" 
+              from="2 2 2" 
+              to="1 1 1" 
+              dur="300">
+            </a-animation>
+            <a-animation 
+              begin="mouseenter"
+              attribute="color" 
+              fill="forwards" 
+              from="black" 
+              to="red" 
+              dur="0">
+            </a-animation>
+            <a-animation 
+              begin="mouseleave" 
+              easing="ease-in" 
+              attribute="scale" 
+              fill="forwards" 
+              from="1 1 1" 
+              to="2 2 2" 
+              dur="300">
+            </a-animation>
+            <a-animation 
+              begin="mouseleave" 
+              attribute="color" 
+              fill="forwards" 
+              from="red" 
+              to="black" 
+              dur="0">
+            </a-animation>
+        </a-entity>
+      </a-entity>
+      <a-sky id="image-360" radius="100" cursor-listener src="#images_01"></a-sky>
+      <a-entity rotation="0 180 0">
+          <a-circle id="#link01" position="0 0 5" material="red" geometry="primitive: sphere; radius: 0.2" pivot="0 0 0"></a-circle>
+      </a-entity>
+      <!--
+      <a-entity rotation="0 90 0">
+        <a-entity
+          geometry="primitive:  circle;  segments:  64; radius:  10"
+          link="href:  aframe-test_all_link_test.html;  title:  test;  image: ;  highlighted:  true;  visualAspectEnabled:  true"
+          material="shader:  portal;  pano:  #test;  side:  double;  backgroundColor:  #24CAFF;  strokeColor:  #24CAFF"
+          position="0 0 5"
+        ></a-entity>
+      </a-entity>
+      -->
+      <a-entity rotation="0 0 0">
+        <a-sphere
+          radius=0.2
+          link="href:  aframe-test_all_link_test.html;  title:  test;  image: ;"
+          position="0 0 5"
+          text="test"
+        ></a-sphere>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
+
+
+
