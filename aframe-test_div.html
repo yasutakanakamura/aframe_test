@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Shader Test</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="js/aframe-html-shader.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/app.js"></script>
+    <a-asset>
+      <img id="images_01" src="images/VR_01_5441_1500mm.jpg">
+    </a-asset>
+    <link rel="stylesheet" href="style/style.css">
+  </head>
+  <body>
+    <div id="loader">
+      <p>loading...</p>
+  </div>
+    <!-- UI要素 --> 
+    <div id="target1" class="target">
+      <img src="images/aframe-logo.jpg" alt="A-Frame">
+      <div><h3>A-Frame</h3>
+      <p>A-Frameは簡単にWeb VRが実現できるフレームワークです。</p></div>
+      <p class="detail">320px × 200px</p>
+    </div>
+    <div id="target2" class="target">
+      <img src="images/aframe-logo.jpg" alt="A-Frame">
+      <div class="cf"><h3>A-Frame</h3>
+      <p>A-Frameは簡単にWeb VRが実現できるフレームワークです。</p></div>
+      <p class="detail">640px × 400px</p>
+    </div>
+    <a-scene>
+      <!-- カメラ -->
+      <a-entity camera look-controls wasd-controls>
+        <a-entity animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                  animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                  cursor="fuse: ture; fuseTimeout: 1500"
+                  position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                  material="color: gray; shader: flat">
+        </a-entity>
+      </a-entity>
+      <a-box position="-1  0.8 0" width="1" height="0.8" material="shader: html; target: #target1;" debug=""></a-box>
+      <a-plane position=" 0 0.8  0" width="1" height="0.8" material="shader: html; target: #target2;" debug=""></a-plane>
+
+      <!--360°画像 -->
+      <a-sky id="image-360"
+            radius="100" 
+            cursor-listener 
+            src="#images_01">
+      </a-sky>
+
+
+    </a-scene>
+
+  </body>
+  <script>
+    var scene = document.querySelector('a-scene');
+    var run = function () {
+        document.getElementById("loader").classList.add("hidden");
+    }
+
+    if (scene.hasLoaded) {
+      run();
+    } else {
+      scene.addEventListener('loaded', run);
+    }
+</script>
+</html>
